@@ -1,6 +1,6 @@
 # Dependencies:
 
-You will need Sass to run the Css code. To install Sass, run:
+You will need Sass to run the Scss code. To install Sass, run:
 
 ### `npm install node-sass`
 
