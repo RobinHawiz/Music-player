@@ -1,7 +1,3 @@
-# Dependencies:
-
-You will need Sass to run the Scss code. To install Sass, run:
-
 ### `npm install node-sass`
 
 ## Getting Started with Create React App
