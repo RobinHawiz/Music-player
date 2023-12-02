@@ -10,7 +10,7 @@ function songLibrary() {
       link: "https://chll.to/e3ac21bc",
       audio: "https://stream.chillhop.com/mp3/8266",
       color: ["#BA4A46", "#FDF0DD"],
-      id: uuidv4,
+      id: uuidv4(),
       active: false,
     },
     {
@@ -21,7 +21,7 @@ function songLibrary() {
       link: "https://chll.to/01e3125e",
       audio: "https://stream.chillhop.com/mp3/9363",
       color: ["#BA4A46", "#FDF0DD"],
-      id: uuidv4,
+      id: uuidv4(),
       active: false,
     },
     {
@@ -32,7 +32,7 @@ function songLibrary() {
       link: "https://chll.to/d86131a4",
       audio: "https://stream.chillhop.com/mp3/58838",
       color: ["#CEB493", "#904F2F"],
-      id: uuidv4,
+      id: uuidv4(),
       active: false,
     },
     {
@@ -43,7 +43,7 @@ function songLibrary() {
       link: "https://chll.to/d86131a4",
       audio: "https://stream.chillhop.com/mp3/58840",
       color: ["#CEB493", "#904F2F"],
-      id: uuidv4,
+      id: uuidv4(),
       active: false,
     },
     {
@@ -54,7 +54,7 @@ function songLibrary() {
       link: "https://chll.to/bd4dd89e",
       audio: "https://stream.chillhop.com/mp3/60618",
       color: ["#804F40", "#112323"],
-      id: uuidv4,
+      id: uuidv4(),
       active: false,
     },
   ];
