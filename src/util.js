@@ -11,7 +11,7 @@ function songLibrary() {
       audio: "https://stream.chillhop.com/mp3/8266",
       color: ["#BA4A46", "#FDF0DD"],
       id: uuidv4(),
-      active: false,
+      active: true,
     },
     {
       name: "Jazz Cabbage",
