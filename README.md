@@ -1,4 +1,4 @@
-### `npm install node-sass`
+Note to self: Prop drilling in react is fun.
 
 ## Getting Started with Create React App
 
