@@ -21,6 +21,7 @@ const Library = ({
             song={song}
             isPlaying={isPlaying}
             setSongs={setSongs}
+            key={song.id}
           />
         ))}
       </div>
