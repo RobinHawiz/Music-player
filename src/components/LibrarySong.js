@@ -1,9 +1,18 @@
 import React from "react";
 
-const LibrarySong = ({ song, setCurrentSong }) => {
+const LibrarySong = ({ song, setCurrentSong, audioRef, isPlaying }) => {
   //Event handlers
   const songSelectHandler = () => {
     setCurrentSong(song);
+    if (isPlaying) {
+      //We wait until the song we clicked on loads, THEN we play it.
+      const playPromise = new Promise((resolve, reject) => {
+        resolve(audioRef);
+      });
+      playPromise.then((audioRef) => {
+        audioRef.current.play();
+      });
+    }
   };
   return (
     <div onClick={songSelectHandler} className="library-song">
