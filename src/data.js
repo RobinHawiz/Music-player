@@ -39,7 +39,7 @@ function songLibrary() {
       name: "Longest Wait",
       cover:
         "https://chillhop.com/wp-content/uploads/2023/05/9e6aaa4e04b9e4054f8ed2586d331113e82247da-1024x1024.jpg",
-      artist: "J.Folk - Pending",
+      artist: "J.Folk - Longest Wait",
       link: "https://chll.to/d86131a4",
       audio: "https://stream.chillhop.com/mp3/58840",
       color: ["#CEB493", "#904F2F"],
