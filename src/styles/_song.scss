@@ -6,7 +6,7 @@
   justify-content: center;
   img {
     margin-top: 2rem;
-    width: calc(10rem + 20vw);
+    width: 25%;
     border-radius: 50%;
   }
   h2 {
@@ -18,5 +18,13 @@
   a {
     text-decoration: none;
     color: black;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .song-container {
+    img {
+      width: 60%;
+    }
   }
 }
