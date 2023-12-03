@@ -6,7 +6,6 @@ import {
   faAngleRight,
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
-import { playAudio } from "../util";
 const Player = ({
   isPlaying,
   setIsPlaying,
@@ -41,7 +40,7 @@ const Player = ({
     audioRef.current.currentTime = e.target.value;
     setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
-  const skipTrackHandler = (direction) => {
+  const skipTrackHandler = async (direction) => {
     //Get index of the current playing song
     let activeIndex = songs.findIndex((song) => song.id === currentSong.id);
     songs[activeIndex].active = false;
@@ -57,9 +56,11 @@ const Player = ({
       activeIndex = (++activeIndex).mod(songs.length);
       songs[activeIndex].active = true;
     }
-    setCurrentSong(songs[activeIndex]);
+    await setCurrentSong(songs[activeIndex]);
+    if (isPlaying) {
+      audioRef.current.play();
+    }
     setSongs(songs);
-    playAudio(isPlaying, audioRef);
   };
   //Add the styles
   const trackAnim = {
