@@ -6,6 +6,7 @@ import {
   faAngleRight,
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
+import { playAudio } from "../util";
 const Player = ({
   isPlaying,
   setIsPlaying,
@@ -58,16 +59,7 @@ const Player = ({
     }
     setCurrentSong(songs[activeIndex]);
     setSongs(songs);
-
-    if (isPlaying) {
-      //We wait until the song we clicked on loads, THEN we play it.
-      const playPromise = new Promise((resolve, reject) => {
-        resolve(audioRef);
-      });
-      playPromise.then((audioRef) => {
-        audioRef.current.play();
-      });
-    }
+    playAudio(isPlaying, audioRef);
   };
 
   return (
