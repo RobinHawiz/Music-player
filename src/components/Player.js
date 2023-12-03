@@ -17,6 +17,10 @@ const Player = ({
   songs,
   setSongs,
 }) => {
+  //Apparently in Javascript the % operator allways gives negative results on negative numbers. So I found this solution on the internet. Pretty nifty.
+  Number.prototype.mod = function (n) {
+    return ((this % n) + n) % n;
+  };
   //Event handlers
   const playSongHandler = () => {
     if (isPlaying) {
@@ -37,36 +41,20 @@ const Player = ({
     setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
   const skipTrackHandler = (direction) => {
-    let activeIndex = -1;
-    //Get index of the current playing song AND set that song to false.
-    do {
-      activeIndex++;
-      if (songs[activeIndex].active === true) {
-        songs[activeIndex].active = false;
-        break;
-      }
-    } while (songs[activeIndex].active === false);
+    //Get index of the current playing song
+    let activeIndex = songs.findIndex((song) => song.id === currentSong.id);
+    songs[activeIndex].active = false;
 
     if (direction === "skip-back") {
-      //If the song we selected is the first one in the library, index will refer to the last song.
-      if (activeIndex === 0) {
-        activeIndex = songs.length - 1;
-        songs[activeIndex].active = true;
-      } else {
-        activeIndex--;
-        songs[activeIndex].active = true;
-      }
+      //If the song we selected was the first one in the library, index will refer to the last song.
+      activeIndex = (--activeIndex).mod(songs.length);
+      songs[activeIndex].active = true;
     }
     //skip-forward
     else {
       //If the song we selected is the last one in the library, index will refer to the first song.
-      if (activeIndex === songs.length - 1) {
-        activeIndex = 0;
-        songs[activeIndex].active = true;
-      } else {
-        activeIndex++;
-        songs[activeIndex].active = true;
-      }
+      activeIndex = (++activeIndex).mod(songs.length);
+      songs[activeIndex].active = true;
     }
     setCurrentSong(songs[activeIndex]);
     setSongs(songs);
