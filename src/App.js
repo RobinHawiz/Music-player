@@ -32,6 +32,16 @@ function App() {
     );
     setSongInfo({ currentTime: current, duration, animationPercentage });
   };
+  const songEndHandler = () => {
+    let activeIndex = songs.findIndex((song) => song.id === currentSong.id);
+    setCurrentSong(songs[activeIndex === songs.length - 1 ? 0 : ++activeIndex]);
+    //Async await really didn't want to work so I set a timeout instead.
+    if (isPlaying) {
+      setTimeout(() => {
+        audioRef.current.play();
+      }, 100);
+    }
+  };
   return (
     <div className="App">
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
@@ -60,6 +70,7 @@ function App() {
         onLoadedMetadata={timeUpdateHandler}
         ref={audioRef}
         src={currentSong.audio}
+        onEnded={songEndHandler}
       ></audio>
     </div>
   );

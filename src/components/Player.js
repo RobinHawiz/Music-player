@@ -60,7 +60,6 @@ const Player = ({
     if (isPlaying) {
       audioRef.current.play();
     }
-    setSongs(songs);
   };
   //Add the styles
   const trackAnim = {
